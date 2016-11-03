@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+
+jar {
+	baseName = 'snap-bid-notification'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile("org.springframework.boot:spring-boot-starter-websocket")
+	compile("org.springframework.boot:spring-boot-starter-activemq")
+	compile('org.springframework.data:spring-data-rest-webmvc')
+	compile('org.springframework.boot:spring-boot-starter-test') {
+		exclude(module: 'commons-logging')
+	}
+	compile("io.projectreactor:reactor-core")
+	compile("io.projectreactor:reactor-net")
+	compile("io.netty:netty-all:4.0.30.Final")
+
+	compile ('org.springframework.boot:spring-boot-starter-web')
+	compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.4'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-core', version:'1.2.1.RELEASE'
+	compile 'commons-io:commons-io:2.4'
+	testCompile group: 'com.jayway.jsonpath', name: 'json-path', version:'0.9.1'
+}

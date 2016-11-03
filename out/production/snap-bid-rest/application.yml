@@ -1,0 +1,13 @@
+---
+spring:
+  datasource:
+    url: jdbc:h2:mem
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+  jpa:
+    hibernate.ddl-auto: update
+    show_sql: false
+security:
+  basic:
+    enabled: false
