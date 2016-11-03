@@ -39,15 +39,17 @@ public class CloudWebSocketConfig extends AbstractWebSocketMessageBrokerConfigur
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry config) {
-		config.setApplicationDestinationPrefixes("/app");
-		config.enableStompBrokerRelay("/topic", "/queue")
-			.setRelayHost(relayHost)
-			.setVirtualHost(virtualHost)
-			.setSystemLogin(login)
-			.setClientLogin(login)
-			.setClientPasscode(passcode)
-			.setSystemPasscode(passcode);
+//		config.setApplicationDestinationPrefixes("/app");
+//		config.enableStompBrokerRelay("/topic", "/queue")
+//			.setRelayHost(relayHost)
+//			.setVirtualHost(virtualHost)
+//			.setSystemLogin(login)
+//			.setClientLogin(login)
+//			.setClientPasscode(passcode)
+//			.setSystemPasscode(passcode);
 
+		config.setApplicationDestinationPrefixes("/app");
+		config.enableSimpleBroker("/topic", "/queue");
 
 	}
 }
